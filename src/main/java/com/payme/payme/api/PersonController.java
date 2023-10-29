@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
-@RequestMapping("/api/v1/users")
+@RequestMapping("api/v1/person")
 @RestController
 public class PersonController {
 
@@ -22,19 +22,20 @@ public class PersonController {
 
     @Autowired
     public PersonController(PersonService personService) {
+
         this.personService = personService;
     }
 
-    @PostMapping
-    public void addPerson( @NonNull @RequestBody Person person) {
+    @PostMapping("/add")
+    public void addPerson(@RequestBody Person person) {
         personService.addPerson(person);
     }
-    @GetMapping
+    @GetMapping("/getAll")
     public List<Person> getAllPeople() {
         return personService.getAllPeople();
     }
 
-    @GetMapping(path = "{id}")
+    @GetMapping("/{id}")
     public Person getPersonById(@PathVariable("id") UUID id) {
         return personService.getPersonById(id)
                 .orElse(null);

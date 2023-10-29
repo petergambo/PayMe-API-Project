@@ -1,7 +1,7 @@
 package com.payme.payme.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.lang.NonNull;
+//import org.springframework.lang.NonNull;
 
 //import javax.validation.constraints.NotBlank;
 
@@ -11,7 +11,6 @@ public class Person {
 
     private final UUID id;
 
-    @NonNull
     private final String name;
 
     public Person(@JsonProperty("id") UUID id,
@@ -22,10 +21,12 @@ public class Person {
     }
 
     public UUID getId() {
+
         return id;
     }
 
     public  String getName() {
+
         return name;
     }
 }

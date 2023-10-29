@@ -11,13 +11,11 @@ import java.util.UUID;
 @Repository("fakeDao")
 public class FakePersonDataAccess implements PersonDao {
 //Implements the PersonDao interface we have created
-
-
-
     private static List<Person> DB = new ArrayList<>(); //Creates an empty list variable called DB which is a list of Person
     @Override
     public int insertPerson(UUID id, Person person) {
         DB.add(new Person(id, person.getName()));
+        System.out.println(DB);
         return 1;
     }
 
